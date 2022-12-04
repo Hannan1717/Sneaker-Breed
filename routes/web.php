@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\ShoesController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\OwnerController;
@@ -25,16 +24,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/shoes', [ShoesController::class, 'index'])->name('shoes.index');
-
-// Jadwal
-Route::middleware(['auth'])->group(function () {
-    Route::get('/jadwal', [JadwalController::class, 'index'])->name('jadwal.index');
-    Route::get('/jadwal/add', [JadwalController::class, 'create'])->name('jadwal.create');
-    Route::post('/jadwal/store', [JadwalController::class, 'store'])->name('jadwal.store');
-    Route::get('/jadwal/edit/{id}', [JadwalController::class, 'edit'])->name('jadwal.edit');
-    Route::post('/jadwal/update/{id}', [JadwalController::class, 'update'])->name('jadwal.update');
-    Route::post('/jadwal/delete/{id}', [JadwalController::class, 'delete'])->name('jadwal.delete');
-});
 
 
 // shop
